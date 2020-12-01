@@ -7,8 +7,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/account")
 public class AccountController {
-
+    
+    //HTTP Get EndPoint
     @GetMapping("/status/check")
+    public String status() {
+        return "Working..";
+    }
+	
+    //HTTP Post EndPoint
+    @PostMapping("/status/check")
     public String status() {
         return "Working..";
     }
