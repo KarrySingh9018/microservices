@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.learning.photoapp.api.albums.io.controllers;
 
 import com.learning.photoapp.api.albums.data.AlbumEntity;
@@ -21,13 +16,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 @RestController
 @RequestMapping("/users/{id}/albums")
 public class AlbumsController {
     
-    @Autowired
+    @Autowired //Dependecy Injection
     AlbumsService albumsService;
+    
     Logger logger = LoggerFactory.getLogger(this.getClass());
+    
+    /**
+    *
+    * @return List<AlbumResponseModel> 
+    * @param id equals to {id} in the reource uri
+    * Method returns the list of albums in dataformat specified in accept header
+    * of get request.
+    */
     @GetMapping( 
             produces = { 
                 MediaType.APPLICATION_JSON_VALUE,
