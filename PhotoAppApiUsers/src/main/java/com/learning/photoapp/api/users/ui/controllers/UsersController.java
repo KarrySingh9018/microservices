@@ -1,6 +1,6 @@
 package com.learning.photoapp.api.users.ui.controllers;
 
- import org.modelmapper.ModelMapper;
+import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -21,7 +21,7 @@ import com.learning.photoapp.api.users.ui.model.CreateUserRequestModel;
 import com.learning.photoapp.api.users.ui.model.CreateUserResponseModel;
 import com.learning.photoapp.api.users.ui.model.UserResponseModel;
 
-@RestController
+@RestController // Annotation used for denoting class as REST controller which has Response Body
 @RequestMapping("/users")
 public class UsersController {
 	
@@ -36,7 +36,13 @@ public class UsersController {
 	{
 		return "Working on port " + env.getProperty("local.server.port") + ", with token = " + env.getProperty("token.secret");
 	}
- 
+ 	
+	/**
+	* @param userDetails object of CreateUserRequestModel
+	* @return CreateUserResponseModel as ResponseEntity
+	* Method creates a response object based on the details passed as PostRequest
+	* and captured by the @RequestBody annotation.
+	*/
 	@PostMapping(
 			consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE },
 			produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE }
@@ -55,14 +61,20 @@ public class UsersController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(returnValue);
 	}
 	
-    @GetMapping(value="/{userId}", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
-    public ResponseEntity<UserResponseModel> getUser(@PathVariable("userId") String userId) {
-       
-        UserDto userDto = usersService.getUserByUserId(userId); 
-        UserResponseModel returnValue = new ModelMapper().map(userDto, UserResponseModel.class);
-        
-        return ResponseEntity.status(HttpStatus.OK).body(returnValue);
-    }
+	/**
+	* @param userId as a path-variable for in the URI
+	* @return ResponseEntity object
+	* Method returns a user object by querying the repository using
+	* service method based on argument userId.
+	*/
+	@GetMapping(value="/{userId}", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+	public ResponseEntity<UserResponseModel> getUser(@PathVariable("userId") String userId) {
+
+		UserDto userDto = usersService.getUserByUserId(userId); 
+		UserResponseModel returnValue = new ModelMapper().map(userDto, UserResponseModel.class);
+
+		return ResponseEntity.status(HttpStatus.OK).body(returnValue);
+        }
 	
 	
 }
