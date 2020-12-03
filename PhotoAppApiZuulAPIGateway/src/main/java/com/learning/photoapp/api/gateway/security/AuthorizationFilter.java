@@ -18,14 +18,23 @@ import io.jsonwebtoken.Jwts;
 
 public class AuthorizationFilter extends BasicAuthenticationFilter {
     
-	Environment environment;
+    @Autowired
+    Environment environment;
 
     public AuthorizationFilter(AuthenticationManager authManager, Environment environment) {
         super(authManager);
         this.environment = environment;
     }
     
-    
+    /**
+    *
+    * @param req converys the HttpServletRequest object
+    * @param res conveys the HttpServletResponse response object
+    * @chain shows the FilterChain object through which authorization passes
+    *
+    * Method authorizes the coming request by passing through a chain of filters after
+    * authentication for user has been performed.
+    */
     @Override
     protected void doFilterInternal(HttpServletRequest req,
             HttpServletResponse res,
@@ -43,7 +52,16 @@ public class AuthorizationFilter extends BasicAuthenticationFilter {
         SecurityContextHolder.getContext().setAuthentication(authentication);
         chain.doFilter(req, res);
     }  
-    
+    /**
+    *
+    * @return UsernamePasswordAuthenticationToken
+    * @param req
+    *
+    * Method builds the authentication token for the incoming request using 
+    * Jwt parser() method and extracting the userId and validating against the DB
+    * and return the UsernamePasswordAuthenticationToken to be used by 
+    * other methods to perform authorization requests.
+    */
     private UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest req) {
         String authorizationHeader = req.getHeader(environment.getProperty("authorization.token.header.name"));
    
