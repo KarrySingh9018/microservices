@@ -26,7 +26,7 @@ import com.learning.photoapp.api.users.ui.model.AlbumResponseModel;
 
 import feign.FeignException;
 
-@Service
+@Service // Annotation used for declaring a class as service component 
 public class UsersServiceImpl implements UsersService {
 	
 	UsersRepository usersRepository;
@@ -48,10 +48,16 @@ public class UsersServiceImpl implements UsersService {
 		this.albumsServiceClient = albumsServiceClient;
 		this.environment = environment;
 	}
- 
+ 	
+	/**
+	*
+	* @param userDetails shared object of UserDto class
+	* @return UserDto
+	* Method return a UserDto object that can be shared between every 
+	* component of application
+	*/
 	@Override
 	public UserDto createUser(UserDto userDetails) {
-		// TODO Auto-generated method stub
 		
 		userDetails.setUserId(UUID.randomUUID().toString());
 		userDetails.setEncryptedPassword(bCryptPasswordEncoder.encode(userDetails.getPassword()));
@@ -67,7 +73,15 @@ public class UsersServiceImpl implements UsersService {
  
 		return returnValue;
 	}
-
+	
+	/**
+	*
+	* @param userName email object of UserEntity class
+	* @return UserDetails 
+	* @throws UsernameNotFoundException if the user is not found
+	* Method return a new user as per the UserDetails class if it is 
+	* present in the repository.
+	*/
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		UserEntity userEntity = usersRepository.findByEmail(username);
