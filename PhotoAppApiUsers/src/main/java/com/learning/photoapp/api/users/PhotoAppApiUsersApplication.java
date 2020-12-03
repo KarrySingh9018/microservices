@@ -17,10 +17,12 @@ import com.learning.photoapp.api.users.shared.FeignErrorDecoder;
 
 import feign.Logger;
 
+/* @Profile annotation is used to specify various stages in an application lifecycle.
+The most common used are for development, testing and prodcution */
 @SpringBootApplication
-@EnableDiscoveryClient
-@EnableFeignClients
-@EnableCircuitBreaker
+@EnableDiscoveryClient // Registering with Eureka as a Client
+@EnableFeignClients // Enabling component scanning for clients that are declared as FeingClients
+@EnableCircuitBreaker // Component scanning for circuit breakers acting on behalf of failing microservices
 public class PhotoAppApiUsersApplication {
 
 	@Autowired
@@ -30,12 +32,18 @@ public class PhotoAppApiUsersApplication {
 		SpringApplication.run(PhotoAppApiUsersApplication.class, args);
 	}
 	
+	/**
+	* @return BCryptPasswordEncoder object for encypting passwords
+	*/
 	@Bean
 	public BCryptPasswordEncoder bCryptPasswordEncoder()
 	{
 		return new BCryptPasswordEncoder();
 	}
 	
+	/**
+	* @return RestTemplate object for exchanging communication between microservices
+	*/
 	@Bean
 	@LoadBalanced
 	public RestTemplate getRestTemplate()
@@ -43,8 +51,11 @@ public class PhotoAppApiUsersApplication {
 		return new RestTemplate();
 	}
 	
+	/**
+	* @return Logging.Level for the Feing as a Logger
+	*/
 	@Bean
-	@Profile("production")
+	@Profile("production") 
 	Logger.Level feignLoggerLevel()
 	{
 		return Logger.Level.NONE;
