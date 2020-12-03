@@ -4,6 +4,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+/* Class acts a blueprint for the user request model */
 public class CreateUserRequestModel {
 	
 	@NotNull(message="First name cannot be null")
@@ -22,24 +23,36 @@ public class CreateUserRequestModel {
 	@Email
 	private String email;
 	
+	/**
+	* @return firstName
+	*/
 	public String getFirstName() {
 		return firstName;
 	}
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+	/**
+	* @return lastName
+	*/
 	public String getLastName() {
 		return lastName;
 	}
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+	/**
+	* @return password
+	*/
 	public String getPassword() {
 		return password;
 	}
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	/**
+	* @return email
+	*/
 	public String getEmail() {
 		return email;
 	}
