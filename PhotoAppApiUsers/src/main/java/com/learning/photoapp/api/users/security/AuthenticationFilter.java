@@ -30,6 +30,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 	private UsersService usersService;
 	private Environment environment;
 	
+	@Autowired
 	public AuthenticationFilter(UsersService usersService, 
 			Environment environment, 
 			AuthenticationManager authenticationManager) {
@@ -37,7 +38,16 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 		this.environment = environment;
 		super.setAuthenticationManager(authenticationManager);
 	}
-	
+    
+    /** 
+    *
+    * @param req object of HttpServletRequest
+    * @param res object of HttpServletResponse
+    * @return Authentication object 
+    *
+    * Method is used for authentication of incoming request using the provided
+    * email and password and return the auth object.
+    */
     @Override
     public Authentication attemptAuthentication(HttpServletRequest req,
                                                 HttpServletResponse res) throws AuthenticationException {
@@ -58,6 +68,16 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         }
     }
     
+    /** 
+    *
+    * @param req object of HttpServletRequest
+    * @param res object of HttpServletResponse
+    * @param chain object of FilterChain
+    * @param auth conveys an Authentication object 
+    *
+    * Method is used for successful authentication of incoming request using the provided
+    * auth object and generated a Jwt token.
+    */
     @Override
     protected void successfulAuthentication(HttpServletRequest req,
                                             HttpServletResponse res,
