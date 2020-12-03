@@ -19,7 +19,13 @@ public class FeignErrorDecoder implements ErrorDecoder {
 	{
 		this.environment = environment;
 	}
-
+	
+	/**
+	* @return Exception object 
+	* @param methodKey
+	* @param response
+	* Method returns an exception object based on the response status.
+	*/
 	@Override
 	public Exception decode(String methodKey, Response response) {
 		switch (response.status()) {
