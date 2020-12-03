@@ -22,10 +22,12 @@
 	</properties>
 
 	<dependencies>
+		<!-- SpringCloud Netflix Eureka Client Dependency-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
+		<!-- SpringCloud Eureka Server Dependency -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
