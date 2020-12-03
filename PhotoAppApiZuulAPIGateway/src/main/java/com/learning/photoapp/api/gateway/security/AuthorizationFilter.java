@@ -30,7 +30,7 @@ public class AuthorizationFilter extends BasicAuthenticationFilter {
     *
     * @param req converys the HttpServletRequest object
     * @param res conveys the HttpServletResponse response object
-    * @chain shows the FilterChain object through which authorization passes
+    * @param chain shows the FilterChain object through which authorization passes
     *
     * Method authorizes the coming request by passing through a chain of filters after
     * authentication for user has been performed.
