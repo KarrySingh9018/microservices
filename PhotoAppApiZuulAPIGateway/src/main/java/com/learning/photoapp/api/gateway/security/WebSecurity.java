@@ -19,7 +19,13 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     public WebSecurity(Environment environment) {
         this.environment = environment;
     }
-	
+    
+    /**
+    * @param http object of the HttpSecurity class
+    *
+    * Mathod configures the various endpoints for different Url paths
+    * which are permitted to be accessed by the users and incoming requests.
+    */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
