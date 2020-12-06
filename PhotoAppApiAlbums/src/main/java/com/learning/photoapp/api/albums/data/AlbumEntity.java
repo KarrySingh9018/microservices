@@ -1,3 +1,6 @@
+/**
+* @author Ramanpreet Singh
+*/
 package com.learning.photoapp.api.albums.data;
 
 public class AlbumEntity {
