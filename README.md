@@ -49,7 +49,7 @@ the dockerHub and pulling it for running the microservice on "port: 8011".
 ![Screenshot (94)](https://user-images.githubusercontent.com/57689321/101287128-5981f300-37bc-11eb-872c-409a9a9aef58.png)
 ![Screenshot (95)](https://user-images.githubusercontent.com/57689321/101287129-5981f300-37bc-11eb-980d-ad8778e68f6d.png)
 ![Screenshot (96)](https://user-images.githubusercontent.com/57689321/101287130-5a1a8980-37bc-11eb-8280-2b5f77912562.png)
-![Screenshot (111)](https://user-images.githubusercontent.com/57689321/101287131-5a1a8980-37bc-11eb-81be-683ffe2219a5.png)
+
 
 
 
