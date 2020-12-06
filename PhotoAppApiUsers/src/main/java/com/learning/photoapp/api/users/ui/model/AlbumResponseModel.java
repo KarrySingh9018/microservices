@@ -1,3 +1,6 @@
+/**
+* @author Ramanpreet Singh
+*/
 package com.learning.photoapp.api.users.ui.model;
 
 /* Class acts as a response model of Albums Entity */
