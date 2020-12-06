@@ -1,3 +1,6 @@
+/**
+* @author Ramanpreet Singh
+*/
 package com.learning.photoapp.api.users.data;
 
 import java.util.ArrayList;
@@ -27,7 +30,6 @@ class AlbumsFallbackFactory implements FallbackFactory<AlbumsServiceClient> {
 
 	@Override
 	public AlbumsServiceClient create(Throwable cause) {
-		// TODO Auto-generated method stub
 		return new AlbumsServiceClientFallback(cause);
 	}
 
