@@ -1,5 +1,5 @@
 # microservices
-Microservices project using Spring Cloud, Docker, ELK stack and AWS EC2.
+Microservices project using Spring Cloud (Eureka, Zuul, CloudBus), Docker and AWS EC2.
 
 Microservices as an architecture consists of small web-services that are capabale of running independently and 
 serve only one business capability. To effectively communicate, the micro-services need to be started in an orderly manner
