@@ -1,3 +1,6 @@
+/**
+* @author Ramanpreet Singh
+*/
 package com.learning.photoapp.api.gateway.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
