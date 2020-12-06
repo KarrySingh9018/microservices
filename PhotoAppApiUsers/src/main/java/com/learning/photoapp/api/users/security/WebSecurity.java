@@ -1,3 +1,6 @@
+/**
+* @author Ramanpreet Singh
+*/
 package com.learning.photoapp.api.users.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +30,11 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 		this.usersService = usersService;
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 	}
-
+	
+	/**
+	* @param http object of HttpSecurity class
+	* Method is responsible for authorizing requests based on incoming requests 
+	*/
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable();
@@ -36,7 +43,10 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 		.addFilter(getAuthenticationFilter());
 		http.headers().frameOptions().disable();
 	}
-	
+	/**
+	* @return AuthenticationFilter object used for passing the required filter
+	* Method is responsible for returning the required authentication filter 
+	*/
 	private AuthenticationFilter getAuthenticationFilter() throws Exception
 	{
 		AuthenticationFilter authenticationFilter = new AuthenticationFilter(usersService, environment, authenticationManager());
@@ -44,10 +54,13 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 		authenticationFilter.setFilterProcessesUrl(environment.getProperty("login.url.path"));
 		return authenticationFilter;
 	}
-	
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(usersService).passwordEncoder(bCryptPasswordEncoder);
-    }
+	/**
+	* @param auth object of AuthenticationManagerBuilder
+	* Method encodes the password of the incoming request using the BcryptPasswordEncoder 
+	*/
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(usersService).passwordEncoder(bCryptPasswordEncoder);
+	}
 
 }
