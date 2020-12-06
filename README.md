@@ -37,4 +37,19 @@ the dockerHub and pulling it for running the microservice on "port: 8011".
 * Repeat the steps for other micro-services with dockerfiles in their directories.
 * Keep in mind of providing the correct IP addresses for effective communication between the microservices.
 
+## Screenshots
+
+![Screenshot (112)](https://user-images.githubusercontent.com/57689321/101287119-57b82f80-37bc-11eb-8277-16879e474d41.png)
+![Screenshot (113)](https://user-images.githubusercontent.com/57689321/101287121-5850c600-37bc-11eb-9fd3-f59d274dc0e4.png)
+![Screenshot (114)](https://user-images.githubusercontent.com/57689321/101287122-5850c600-37bc-11eb-8b16-a5881eec9b16.png)
+![Screenshot (90)](https://user-images.githubusercontent.com/57689321/101287123-58e95c80-37bc-11eb-9e66-39b1b5a22372.png)
+![Screenshot (91)](https://user-images.githubusercontent.com/57689321/101287124-58e95c80-37bc-11eb-9ee5-44b24f3f7f22.png)
+![Screenshot (92)](https://user-images.githubusercontent.com/57689321/101287126-58e95c80-37bc-11eb-9454-b5c3d2e7f32e.png)
+![Screenshot (93)](https://user-images.githubusercontent.com/57689321/101287127-5981f300-37bc-11eb-9437-fb1a20bcad82.png)
+![Screenshot (94)](https://user-images.githubusercontent.com/57689321/101287128-5981f300-37bc-11eb-872c-409a9a9aef58.png)
+![Screenshot (95)](https://user-images.githubusercontent.com/57689321/101287129-5981f300-37bc-11eb-980d-ad8778e68f6d.png)
+![Screenshot (96)](https://user-images.githubusercontent.com/57689321/101287130-5a1a8980-37bc-11eb-8280-2b5f77912562.png)
+![Screenshot (111)](https://user-images.githubusercontent.com/57689321/101287131-5a1a8980-37bc-11eb-81be-683ffe2219a5.png)
+
+
 
