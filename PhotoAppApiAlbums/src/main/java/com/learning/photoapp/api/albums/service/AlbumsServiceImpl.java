@@ -1,3 +1,6 @@
+/**
+* @author Ramanpreet Singh
+*/
 package com.learning.photoapp.api.albums.service;
 
 import com.learning.photoapp.api.albums.data.AlbumEntity;
@@ -26,8 +29,16 @@ public class AlbumsServiceImpl implements AlbumsService {
         albumEntity2.setId(2L);
         albumEntity2.setName("album 2 name");
         
+        AlbumEntity albumEntity3 = new AlbumEntity();
+        albumEntity3.setUserId(userId);
+        albumEntity3.setAlbumId("album3Id");
+        albumEntity3.setDescription("album 3 description");
+        albumEntity3.setId(3L);
+        albumEntity3.setName("album 3 name");
+        
         returnValue.add(albumEntity);
         returnValue.add(albumEntity2);
+        returnValue.add(albumEntity3);
         
         return returnValue;
     }
