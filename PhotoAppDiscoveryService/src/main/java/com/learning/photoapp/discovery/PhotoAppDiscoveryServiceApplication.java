@@ -1,3 +1,6 @@
+/**
+* @author Ramanpreet Singh
+*/
 package com.learning.photoapp.discovery;
 
 import org.springframework.boot.SpringApplication;
