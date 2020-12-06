@@ -1,9 +1,9 @@
-package com.learning.photoapp.api.albums.ui.model;
-
 /**
  *
- * @author HP
+ * @author Ramanpreet Singh
  */
+package com.learning.photoapp.api.albums.ui.model;
+
 public class AlbumResponseModel {
     private String albumId;
     private String userId; 
